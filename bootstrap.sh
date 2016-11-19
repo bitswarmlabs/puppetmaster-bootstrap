@@ -11,7 +11,7 @@ echo "## Bootstrapping r10k"
 set -x
 
 FACTER_provisioner=$provisioner \
-FACTER_puppetversion=puppetversion \
+FACTER_puppetversion=$puppetversion \
 FACTER_app_project='puppetmaster' \
 FACTER_app_creator=$app_creator \
 puppet apply "${DIR}/manifests/r10k_bootstrap.pp" \
