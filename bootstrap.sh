@@ -17,7 +17,7 @@ FACTER_app_creator=$app_creator \
 puppet apply "${DIR}/manifests/r10k_bootstrap.pp" \
     --show_diff \
     --verbose \
-    --hiera_config="${DIR}/bootstrap/hiera.yaml" \
+    --hiera_config="${DIR}/hiera.yaml" \
     --modulepath="${DIR}/modules:/etc/puppetlabs/code/modules:/opt/puppetlabs/puppet/modules"
 
 set +x
@@ -32,7 +32,7 @@ FACTER_app_creator=$app_creator \
 puppet apply "${DIR}/environments/aws/manifests/base.pp" \
     --show_diff \
     --verbose \
-    --hiera_config="${DIR}/bootstrap/hiera.yaml" \
+    --hiera_config="${DIR}/hiera.yaml" \
     --modulepath="${DIR}/modules:/etc/puppetlabs/code/modules:/opt/puppetlabs/puppet/modules"
 
 set +x
