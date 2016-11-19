@@ -1,8 +1,20 @@
 class packer::debug(
-  $message = undef
+  $message = "nobody home"
 ) {
-  if $message {
-    notify { "packer-debug": message => $message }
+  notify { "#### packer::debug: ${message}": }
+
+  if $::ec2_tag_profile {
+    notify { "ec2_tag_profile: ${::ec2_tag_profile}": }
+  }
+  else {
+    notify { "no ec2_tag_profile available": }
+  }
+
+  if $::ec2_tag_role {
+    notify { "ec2_tag_role: ${::ec2_tag_role}": }
+  }
+  else {
+    notify { "no ec2_tag_role available": }
   }
 
   $hello_worlds = hiera_array('hello_worlds', [])
