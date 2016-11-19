@@ -29,6 +29,7 @@ FACTER_provisioner=$provisioner \
 FACTER_puppetversion=$puppetversion \
 FACTER_app_project='puppetmaster' \
 FACTER_app_creator=$app_creator \
+FACTER_bootstrapping='true' \
 puppet apply "${DIR}/environments/aws/manifests/base.pp" \
     --show_diff \
     --verbose \
