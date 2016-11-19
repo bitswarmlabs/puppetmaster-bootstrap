@@ -1,12 +1,15 @@
 #!/bin/bash
 
-provisioner="aws"
-app_creator=$(whoami)
+provisioner=${1:-"aws"}
+app_creator=${2:-`whoami`}
+app_project=${3:-'puppetmaster'}
 puppetversion=$(puppet --version)
 
-DIR="$( cd "$( dirname "$${BASH_SOURCE[0]}" )" && pwd )"
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 echo "## Bootstrapping r10k"
+set -x
+
 FACTER_provisioner=$provisioner \
 FACTER_puppetversion=puppetversion \
 FACTER_app_project='puppetmaster' \
@@ -17,7 +20,11 @@ puppet apply ${DIR}/manifests/r10k_bootstrap.pp \
     --hiera_config_path=${DIR}/bootstrap/hiera.yaml
     --modulepath="${DIR}/modules:/etc/puppetlabs/code/modules:/opt/puppetlabs/puppet/modules"
 
+set +x
+
 echo "## Bootstrapping Puppetserver environments"
+set -x
+
 FACTER_provisioner=$provisioner \
 FACTER_puppetversion=$puppetversion \
 FACTER_app_project='puppetmaster' \
@@ -27,3 +34,5 @@ puppet apply $${DIR}/environments/aws/manifests/base.pp \
     --verbose \
     --hiera_config_path=$${DIR}/bootstrap/hiera.yaml \
     --modulepath="${DIR}/modules:/etc/puppetlabs/code/modules:/opt/puppetlabs/puppet/modules"
+
+set +x
