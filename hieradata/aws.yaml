@@ -8,3 +8,5 @@ classes:
 
 ohmyzsh::plugins:
   - aws
+
+hello_worlds: 'hello world! we know we are on AWS'

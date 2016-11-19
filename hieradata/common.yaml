@@ -1,6 +1,9 @@
 ---
 classes:
+  - packer::debug
   - packer::updates
   - packer::clock
 
 puppetmaster: 'puppet'
+
+hello_worlds: 'hello world! wouldnt have made it to common if hiera was broke'

@@ -12,3 +12,4 @@
   - "common"
 :yaml:
   :datadir: "/tmp/hieradata"
+:merge_behavior: deeper

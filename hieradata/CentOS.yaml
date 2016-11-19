@@ -1,3 +1,5 @@
 ---
 packer::aws::local_service_acct_user: 'centos'
 packer::aws::local_service_acct_gecos: 'Admin'
+
+hello_worlds: 'hello world! we know we are in CentOS'

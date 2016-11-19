@@ -2,6 +2,8 @@
 classes:
   - bsl_bootstrap::puppetmaster::prepare
 
+hello_worlds: 'puppetmaster.yaml on it'
+
 bsl_bootstrap::puppetmaster::config::r10k_sources:
   private:
     remote: 'git@github.com:bitswarmlabs/puppetmaster-private.git'
