@@ -1,0 +1,6 @@
+---
+classes:
+  - packer::updates
+  - packer::clock
+
+puppetmaster: 'puppet'

@@ -1,0 +1,8 @@
+# Local Hiera overrides
+hieradata/local/
+hieradata/local.yaml
+
+# All modules in puppet/modules except for packer
+modules/*/
+!modules/packer/
+dist/
