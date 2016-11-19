@@ -11,4 +11,4 @@
   - "%{::provisioner}"
   - "common"
 :yaml:
-  :datadir: "/tmp/hieradata"
+  :datadir: "hieradata"

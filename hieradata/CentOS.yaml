@@ -1,0 +1,3 @@
+---
+packer::aws::local_service_acct_user: 'centos'
+packer::aws::local_service_acct_gecos: 'Admin'
