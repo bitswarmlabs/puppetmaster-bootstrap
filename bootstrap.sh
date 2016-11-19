@@ -7,6 +7,9 @@ puppetversion=$(puppet --version)
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
+[ -e /tmp/hieradata ] && rm -fr /tmp/hieradata
+cp -R hieradata /tmp/
+
 echo "## Bootstrapping r10k"
 set -x
 
@@ -38,3 +41,5 @@ puppet apply "${DIR}/environments/aws/manifests/base.pp" \
     --modulepath="${DIR}/modules:/etc/puppetlabs/code/modules:/opt/puppetlabs/puppet/modules"
 
 set +x
+
+rm -fr /tmp/hieradata
