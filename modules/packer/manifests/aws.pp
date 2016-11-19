@@ -3,5 +3,5 @@ class packer::aws(
   $local_service_acct_gecos = 'Admin',
   $manage_users = 'true',
 ) {
-
+  include awscli
 }
