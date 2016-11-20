@@ -37,7 +37,6 @@ puppet apply "${DIR}/environments/aws/manifests/base.pp" \
     --show_diff \
     --verbose \
     --hiera_config="${DIR}/hiera.yaml" \
-    --environment="production" \
     --modulepath="${DIR}/modules:/etc/puppetlabs/code/modules:/opt/puppetlabs/puppet/modules"
 
 set +x
